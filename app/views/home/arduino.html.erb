@@ -1,0 +1,119 @@
+<div class="container-fluid" style="background-color:black; margin-top:-50px; min-height: 800px">
+
+  <div>
+    <br><br><br><br><br><br>
+<div class="row">
+  <div class="col-xs-3 text-right">
+    <h1 style="color: grey">Moisture</h1>
+  </div>
+    <div class="col-xs-8">
+      <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+  </div>
+  <div>
+    <br><br><br><br><br>
+    <div class="row">
+      <div class="col-xs-3 text-right">
+    <h1 style="color: grey">Battery</h1>
+  </div>
+    <div class="col-xs-8">
+    <canvas id="vChart"></canvas>
+    </div>
+  </div><br><br><br><br><br>
+
+</div>
+
+
+<script>
+//moisture
+var ctx = document.getElementById("myChart").getContext('2d');
+
+var myChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["m", "until 100%"],
+    datasets: [{
+      backgroundColor: [
+        "#3498db",
+        "#f2f3f4"
+
+      ],
+      borderColor: [
+                "#3498db",
+                  "#f2f3f4"
+            ],
+
+      data: [0, 100]
+    }]
+  },
+  options: {
+    cutoutPercentage: 75,
+    rotation: 0.75 * Math.PI,
+        circumference: 1.5 * Math.PI,
+        legend: {
+          display: false
+        }
+
+  }
+});
+
+setInterval(function() {
+ $.ajax({
+    type: "GET",
+    url: "arduino/getMoistureData",
+    dataType: "json",
+    success: function(moistureValue) {
+      myChart.data.datasets[0].data[1] = 100 - moistureValue/12;
+      myChart.data.datasets[0].data[0] = moistureValue/12;
+      myChart.update();
+    }
+});
+}, 1000)
+
+//voltage
+var ctx = document.getElementById("vChart").getContext('2d');
+
+var vChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["v", "until 100%"],
+    datasets: [{
+      backgroundColor: [
+        "#3498db",
+        "#f2f3f4"
+      ],
+      borderColor: [
+                "#3498db",
+                  "#f2f3f4"
+            ],
+      data: [0, 100]
+    }]
+  },
+  options: {
+    cutoutPercentage: 75,
+    rotation: 0.75 * Math.PI,
+        circumference: 1.5 * Math.PI,
+        legend: {
+          display: false
+        }
+  }
+});
+
+setInterval(function() {
+
+ $.ajax({
+    type: "GET",
+    url: "arduino/getVoltageData",
+    dataType: "json",
+    success: function(voltageValue) {
+      vChart.data.datasets[0].data[1] = 100 - voltageValue/0.06;
+      vChart.data.datasets[0].data[0] = voltageValue/0.06;
+      vChart.update();
+    }
+});
+}, 1000)
+
+
+</script>

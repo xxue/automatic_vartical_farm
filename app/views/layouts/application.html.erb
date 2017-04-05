@@ -6,9 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
     <script type="text/javascript" src="http://use.typekit.com/xxxxxxx.js"></script>
    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 
 
   </head>
@@ -16,7 +19,6 @@
     <%= render 'layouts/nav' %>
 </div>
   <body>
-
     <%= yield %>
   </body>
 </html>

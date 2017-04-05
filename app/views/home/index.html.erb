@@ -1,1 +1,19 @@
-<h1>hello farm</h1>
+<div class="container-fluid homepage">
+
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-4">
+
+   <h1><%= @forecast["timezone"]%></h1>
+    <h2>Current:  <%= @forecast["currently"]["summary"] %> </h2>
+
+  <ul><% @forecast["hourly"]["data"].each do |hour| %>
+    <li><h3><%= Time.at(hour["time"]) %>   <%= hour["summary"] %></h3></li>
+
+    <% end %>
+
+  </ul>
+  </div>
+  </div>
+
+
+</div>

@@ -49,6 +49,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'devise'
+gem 'darksky'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

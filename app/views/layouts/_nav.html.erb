@@ -1,37 +1,26 @@
 <nav class = "navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
 
-    <div class="navbar-header">
+    <span class="navbar-brand navlink">
       <%#=image_tag("giraffe_xx.jpg", id: "xxnavpic", class: "img-fluid")%>
-      <span><%=link_to "home", root_path%></span>
-    </div>
+    <%=link_to "home", root_path, {:class => "navlink2"} %>
+    </span>
 
-          <ul class="nav navbar-nav pull-right">
-            <% if user_signed_in? %>
-              <li><%= link_to "Sign out", destroy_user_session_path, {:class => "navlink"}, method: 'DELETE' %></li>
-            <% else %>
+              <% if user_signed_in? %>
+                <a class ="navlink2 pull-right" data-method="delete" href="/logout">Sign out</a>
+              <% else %>
+              <ul class="nav navbar-nav pull-right">
                <li><%= link_to "Log in",  new_user_session_path,{:class => "navlink"} %></li>
                <li><%= link_to "Sign up", new_user_registration_path, {:class => "btn-primary navbutton"} %> </li>
             <% end %>
-     </ul>
+          </ul>
 
           <div>
-            <button type="button" class="btn btn-primary">
-              Farm
-            </button>
-            <h3>Weather forcast</h3>
-
-              <% if user_signed_in? %>
-                  <%#=render "data" %>
-
-                    <h2>farm data</h2>
-                    <h3>humidity</h3>
-                    <h3>voltage</h3>
-                      <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <a href="/arduino"><button type="button" class="btn btn-primary btn-lg navbutton">Farm</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 

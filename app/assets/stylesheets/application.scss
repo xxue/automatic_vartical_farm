@@ -2,8 +2,9 @@
  @import "bootstrap";
 
  nav {
-   background-color: #262c3d !important;
-   font-color: white !important
+   background-color: #2F364A !important;
+   font-color: white !important;
+   height: 80px !important
  }
 
  .navbutton{
@@ -11,8 +12,9 @@
    width: 100px !important;
    font-size: 16px !important;
    color: white !important;
-   margin-top: 20px;
+   margin-top: 15px;
    text-align: center;
+
  }
 
  .navlink {
@@ -22,36 +24,53 @@
    text-align: center;
  }
 
+ .navlink2 {
+   font-size: 20px !important;
+   color: white !important;
+   margin-top: 25px;
+   text-align: center;
+ }
+
 body {
-  padding-top: 80px;
+  padding-top: 110px;
   background-color: #EEEEEE;
-  color: #666666;
-  font-family: Helvetica
+  color: black;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .myformlabel {
-  font-size: 28px;
+  font-size: 25px;
   display: block;
 }
 
 .forminput{
   width: 400px;
   height: 38px;
-  font-size: 25px
+  font-size: 22px
 }
 
 .btn-lg{
   border-radius: 18px !important;
   width: 120px !important;
-  font-size: 25px !important;
+  font-size: 22px !important;
 }
 
 .linkto{
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .forget{
   font-color: grey;
   font-size: 18px;
+}
 
+.homepage{
+  margin-top: -40px;
+  background-image: url("garden.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-attachment: fixed;
+  background-color: rgba(255,255,255,0.7);
+  background-blend-mode: lighten;
 }
